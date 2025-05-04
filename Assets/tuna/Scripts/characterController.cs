@@ -12,6 +12,7 @@ public class characterController : MonoBehaviour
     private SpriteRenderer characterRen;
     //Dashing
     private TrailRenderer characterTrailRen;
+    private Collider2D characterCollider;
     private bool canDash = true;
     private bool isDashing;
     //Animations
@@ -21,6 +22,9 @@ public class characterController : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private LayerMask enemyLy;
     [SerializeField] private float damage;
+    private Collider2D[] enemy;
+    private Vector3 attackPointOffset;
+    private bool facingRight;
 
     private void Awake()
     {
@@ -28,6 +32,8 @@ public class characterController : MonoBehaviour
         characterRen = GetComponent<SpriteRenderer>();
         characterTrailRen = GetComponent<TrailRenderer>();
         characterAnimator = GetComponent<Animator>();
+        attackPointOffset = attackPoint.localPosition;
+        characterCollider = GetComponent<Collider2D>();
     }
     void Start()
     {
@@ -63,11 +69,16 @@ public class characterController : MonoBehaviour
             moveDirection = -1.0f;
             characterRen.flipX = true;
 
+            //Gizmoyu döndürmek için.
+            facingRight = false;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             moveDirection = 1.0f;
             characterRen.flipX = false;
+            
+            //Gizmoyu döndürmek için.
+            facingRight = true;  
         }
         else
         {
@@ -104,11 +115,15 @@ public class characterController : MonoBehaviour
         float originalGravity = characterRb.gravityScale;
         characterRb.gravityScale = 0f;
         characterRb.linearVelocity = new Vector2(characterStats.dashingPower * moveDirection, characterRb.linearVelocity.y);
+        characterCollider.enabled = false;
+        //if(characterAnimator.set)
+        characterAnimator.Play(Animator.StringToHash("bossCharacterDashAnim"));
         characterTrailRen.emitting = true;
         yield return new WaitForSeconds(characterStats.dashingTime);
         characterTrailRen.emitting = false;
         characterRb.gravityScale = originalGravity;
         isDashing = false;
+        characterCollider.enabled = true;
         yield return new WaitForSeconds(characterStats.dashingCoolDown);
         canDash = true;
     }
@@ -117,8 +132,8 @@ public class characterController : MonoBehaviour
         characterAnimator.SetBool("isAttacking", false);
     }
     public void characterAttack()
-    {
-        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemyLy);
+    {  
+        enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemyLy);
 
         foreach (Collider2D colliderEnemy in enemy)
         {
@@ -128,6 +143,19 @@ public class characterController : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
+        //buraya yine bak!
         Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
+
+    void LateUpdate()
+    {
+        // AttackPoint’i her frame, doðru tarafa taþý
+        float x = Mathf.Abs(attackPointOffset.x) * (facingRight ? 1f : -1f);
+        attackPoint.localPosition = new Vector3(
+            x,
+            attackPointOffset.y,
+            attackPointOffset.z
+        );
+    }
+
 }

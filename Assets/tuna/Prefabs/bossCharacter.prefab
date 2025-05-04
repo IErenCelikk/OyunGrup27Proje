@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 8895883504834800982}
   - component: {fileID: 6314502421923117372}
   - component: {fileID: 2237906394030079848}
-  m_Layer: 0
+  - component: {fileID: 7941924725729362128}
+  m_Layer: 7
   m_Name: bossCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1266348627
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4723107735738678597, guid: e9044f29c41598548b4118eb04fb4fa9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -194,10 +195,11 @@ MonoBehaviour:
   characterStats: {fileID: 11400000, guid: 11366801c4d8fd34a9a67676aab0a537, type: 2}
   moveDirection: 0
   attackPoint: {fileID: 8432926253100394308}
-  radius: 0
+  radius: 0.35
   enemyLy:
     serializedVersion: 2
     m_Bits: 64
+  damage: 100
 --- !u!96 &2237906394030079848
 TrailRenderer:
   serializedVersion: 3
@@ -252,8 +254,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.5353991
+        time: 0.0030136108
+        value: 0.5283209
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -274,7 +276,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.4867924, g: 0.0027553889, b: 0.0027553889, a: 1}
+      key0: {r: 0.96981126, g: 0.96981126, b: 0.96981126, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -314,6 +316,20 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7941924725729362128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952344609391106284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47fd7afcefd272046ae9dbe16c2e827a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAmount: 100
+  redStep: 0
 --- !u!1 &5434032204380771220
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +355,7 @@ Transform:
   m_GameObject: {fileID: 5434032204380771220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.649, y: 0.197, z: 0}
+  m_LocalPosition: {x: 0.74, y: 0.496, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
