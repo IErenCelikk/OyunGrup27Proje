@@ -16,6 +16,11 @@ public class characterController : MonoBehaviour
     private bool isDashing;
     //Animations
     private Animator characterAnimator;
+    //attacking
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float radius;
+    [SerializeField] private LayerMask enemyLy;
+    [SerializeField] private float damage;
 
     private void Awake()
     {
@@ -110,5 +115,19 @@ public class characterController : MonoBehaviour
     public void endAttack()
     {
         characterAnimator.SetBool("isAttacking", false);
+    }
+    public void characterAttack()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemyLy);
+
+        foreach (Collider2D colliderEnemy in enemy)
+        {
+            Debug.Log("Hit");
+            colliderEnemy.GetComponent<health>().takeDamage(damage);
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
 }
