@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class healthBar : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Image healthBarImage;
+    [SerializeField]private bossController bossController;
+
+    void Awake()
     {
-        
+        healthBarImage = GetComponent<Image>();
+    }
+    private void Start()
+    {
+        healthBarImage.fillAmount = 1f;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
 }
