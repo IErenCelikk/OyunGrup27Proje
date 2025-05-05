@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Wall
   - ground
   layers:
   - Default
@@ -44,13 +43,13 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 3181415937
+    uniqueID: 2683305197
     locked: 0
   - name: Midground
-    uniqueID: 1266348627
+    uniqueID: 3078423357
     locked: 0
   - name: Foreground
-    uniqueID: 1912475243
+    uniqueID: 951704253
     locked: 0
   m_RenderingLayers:
   - Default

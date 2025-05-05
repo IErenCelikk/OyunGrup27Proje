@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: a80f81cb342d59449886a44ccd7aa20b, type: 2}
     - target: {fileID: 3626916397498700004, guid: 599e5ad625d63d441bbfc9af9a0cc78d, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 599e5ad625d63d441bbfc9af9a0cc78d, type: 3}
       propertyPath: m_SortingLayerID
@@ -310,6 +310,6 @@ MonoBehaviour:
   vector3: {x: 1.6, y: 0.53, z: 1}
   playerLy:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   damage: 25
   healthBar: {fileID: 0}

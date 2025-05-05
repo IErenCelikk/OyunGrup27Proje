@@ -81,7 +81,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1266348627
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 4723107735738678597, guid: e9044f29c41598548b4118eb04fb4fa9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -198,7 +198,7 @@ MonoBehaviour:
   radius: 0.35
   enemyLy:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   damage: 100
 --- !u!96 &2237906394030079848
 TrailRenderer:
