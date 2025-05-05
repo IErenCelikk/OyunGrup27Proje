@@ -4,8 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
+<<<<<<< Updated upstream
   - Wall
   - ground
+=======
+  - Portal
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -43,6 +47,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< Updated upstream
   - name: Background
     uniqueID: 3181415937
     locked: 0
@@ -52,5 +57,7 @@ TagManager:
   - name: Foreground
     uniqueID: 1912475243
     locked: 0
+=======
+>>>>>>> Stashed changes
   m_RenderingLayers:
   - Default
