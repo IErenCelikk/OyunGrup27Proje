@@ -4,6 +4,8 @@ using TMPro;
 
 public class TypewriterManager : MonoBehaviour
 {
+    [SerializeField] GameObject[] PauseObjects;
+
     public TextMeshProUGUI textUI;
     public string[] lines = {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -36,6 +38,11 @@ public class TypewriterManager : MonoBehaviour
             else
             {
                 textUI.text = "";
+
+                foreach (var obj in PauseObjects)
+                {
+                    obj.SetActive(true);
+                }
             }
         }
     }
