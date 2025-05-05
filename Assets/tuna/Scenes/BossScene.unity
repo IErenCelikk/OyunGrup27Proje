@@ -1391,6 +1391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37ec35530be95c459504b442f2d0949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textUI: {fileID: 868620310}
+  speakerUI: {fileID: 0}
   PauseObjects:
   - {fileID: 434150715}
   - {fileID: 389246918}
@@ -1398,17 +1400,13 @@ MonoBehaviour:
   - {fileID: 1797169044}
   - {fileID: 2117820436}
   - {fileID: 1724178355}
-  textUI: {fileID: 868620310}
   lines:
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua.
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua.
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua.
+  - "\u0130nsan tuzaklardan ka\xE7abilir fakat kendinden ka\xE7amaz Mert sen de bunun
+    fark\u0131ndas\u0131n."
   typingSpeed: 0.05
   typingSound: {fileID: 1527257933}
   isSpeech: 0
+  selectedSpeaker: 1
 --- !u!4 &1527257935
 Transform:
   m_ObjectHideFlags: 0
