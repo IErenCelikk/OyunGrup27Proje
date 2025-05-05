@@ -7,4 +7,14 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Maze");
     }
+
+    public void OpenRunnerScientistScene()
+    {
+        SceneManager.LoadScene("RunnerScientist");
+    }
+
+    public void OpenBossScene()
+    {
+        SceneManager.LoadScene("BossScene");
+    }
 }

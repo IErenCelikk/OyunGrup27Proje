@@ -7,7 +7,8 @@ public class TypewriterManager : MonoBehaviour
     public enum Speaker
     {
         Mert,
-        Narrator
+        Narrator,
+        Sedat
     }
 
     [Header("UI Elements")]
