@@ -4,16 +4,27 @@ using TMPro;
 
 public class TypewriterManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] PauseObjects;
+    public enum Speaker
+    {
+        Mert,
+        Narrator
+    }
 
-    public TextMeshProUGUI textUI;
-    public string[] lines = {
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    };
+    [Header("UI Elements")]
+    [SerializeField] private TextMeshProUGUI textUI;
+    [SerializeField] private TextMeshProUGUI speakerUI;
+    [SerializeField] private GameObject[] PauseObjects;
+
+    [Header("Typing Settings")]
+    [TextArea(3, 10)]
+    public string[] lines;
+
     public float typingSpeed = 0.05f;
     public AudioSource typingSound;
+
+    [Header("Speech Settings")]
+    public bool isSpeech = false;
+    public Speaker selectedSpeaker = Speaker.Narrator;
 
     private int currentLineIndex = 0;
     private bool isTyping = false;
@@ -21,6 +32,10 @@ public class TypewriterManager : MonoBehaviour
 
     void Start()
     {
+        if (speakerUI != null) 
+        {
+            speakerUI.text = selectedSpeaker.ToString();
+        }
         StartCoroutine(TypeLine());
     }
 
@@ -39,25 +54,41 @@ public class TypewriterManager : MonoBehaviour
             {
                 textUI.text = "";
 
+                if (speakerUI != null)
+                {
+                    speakerUI.text = "";
+                }
+                
+
                 foreach (var obj in PauseObjects)
                 {
                     obj.SetActive(true);
                 }
+
+                Destroy(gameObject);
             }
         }
     }
+
 
     IEnumerator TypeLine()
     {
         isTyping = true;
         textUI.text = "";
 
+        if (isSpeech && typingSound != null)
+        {
+            typingSound.Play();
+        }
+
         foreach (char c in lines[currentLineIndex])
         {
             textUI.text += c;
 
-            if (typingSound != null)
+            if (!isSpeech && typingSound != null)
+            {
                 typingSound.Play();
+            }
 
             yield return new WaitForSeconds(typingSpeed);
         }

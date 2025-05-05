@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Sude/Main menu.unity
     guid: 8bec08b2b3360b646aba9cf87081cced
   - enabled: 1
+    path: Assets/Hasan/Scenes/Oda.unity
+    guid: 2cbcc4804882ee044ba8e6eab5e997c5
+  - enabled: 1
     path: Assets/Hasan/Scenes/Maze.unity
     guid: 2551d6ca7ad6df240b320e8081ea11d1
   - enabled: 1
-    path: Assets/Hasan/Scenes/Oda.unity
-    guid: 2cbcc4804882ee044ba8e6eab5e997c5
+    path: Assets/Eren/Scenes/RunnerScientist.unity
+    guid: fbd2e444a416c7b47b7195d6de79cca3
   - enabled: 1
     path: Assets/tuna/Scenes/tuna.unity
     guid: da919a860564ed444987ee4137967bb8

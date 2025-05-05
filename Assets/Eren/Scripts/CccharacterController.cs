@@ -78,7 +78,7 @@ public class CharacterController : MonoBehaviour
             animator.SetBool("Fail", true);
             audioSource.clip = failClip;
             audioSource.Play();
-            Invoke("change", 0.5f);
+            Invoke("resetTransform", 0.5f);
             
         }
         if (other.gameObject.CompareTag("Pportal"))
@@ -87,9 +87,9 @@ public class CharacterController : MonoBehaviour
             audioSource.Play();
         }
     }
-    public void change()
+    public void resetTransform()
     {
-        SceneManager.LoadScene(scene.name);
+        this.gameObject.transform.position = new Vector3(-5.78f, -2.38f, 0);
     }
 
 }

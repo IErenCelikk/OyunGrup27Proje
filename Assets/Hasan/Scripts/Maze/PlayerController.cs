@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Portal")) 
         {
-            Debug.Log("Oyun Bitti");
+            SceneManager.LoadScene("Oda1");
         }
     }
 }
